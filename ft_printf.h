@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:35:09 by mboughra          #+#    #+#             */
-/*   Updated: 2023/12/08 16:47:43 by mboughra         ###   ########.fr       */
+/*   Updated: 2023/12/09 21:28:09 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ int	ft_putnbr(long n);
 int	ft_putnbr2(long n);
 int	ft_putstr(char *s);
 int	ft_hexaconv(unsigned int a, char c);
-int	ft_hexapointer(unsigned long a);
+int	ft_hexapointer(unsigned long a, int check);
 
 #endif

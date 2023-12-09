@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 15:56:16 by mboughra          #+#    #+#             */
-/*   Updated: 2023/12/08 17:33:18 by mboughra         ###   ########.fr       */
+/*   Updated: 2023/12/09 21:31:49 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	ft_putchar(char c)
 {
-	write (1, &c, 1);
-	return (1);
+	return (write (1, &c, 1));
 }
 
 int	ft_putnbr(long n)
