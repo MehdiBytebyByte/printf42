@@ -6,7 +6,7 @@
 #    By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/07 15:03:17 by mboughra          #+#    #+#              #
-#    Updated: 2023/12/08 15:36:28 by mboughra         ###   ########.fr        #
+#    Updated: 2023/12/09 19:21:09 by mboughra         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ $(NAME):$(OFILES)
 	ar -rc $(NAME) $(OFILES)
 
 %.o: %.c ft_printf.h
-	$(CC)  -c $< -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OFILES)
@@ -33,4 +33,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean
+.PHONY: clean re fclean all
