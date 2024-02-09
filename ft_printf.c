@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:54:39 by mboughra          #+#    #+#             */
-/*   Updated: 2023/12/09 21:35:08 by mboughra         ###   ########.fr       */
+/*   Updated: 2023/12/13 16:10:52 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,39 +32,36 @@ int	ft_icheck(char c, va_list ap)
 		count += ft_hexaconv(va_arg(ap, unsigned int), c);
 	else if (c == 'p')
 	{
+		count += write(1, "0x", 2);
 		p = (unsigned long)va_arg(ap, void *);
-		count += ft_hexapointer(p, 1);
+		count += ft_hexapointer(p);
 	}
 	else if (c != '\0')
-		write(1, &c, 1);
+		count += write(1, &c, 1);
 	return (count);
 }
 
 int	ft_printf(const char *str, ...)
 {
 	va_list	ap;
-	int		i;
 	int		count;
 
+	count = 0;
 	if (write (1, "", 0) == -1)
 		return (-1);
-	i = 0;
-	count = 0;
-	va_start(ap,str);
-	while (str[i])
+	va_start(ap, str);
+	while (*str)
 	{
-		if (str[i] == '%')
+		if (*str == '%')
 		{
-			if (str[++i] == '\0')
+			str++;
+			if (*str == '\0')
 				break ;
-			count += ft_icheck(str[i], ap);
+			count += ft_icheck(*str, ap);
 		}
 		else
-		{
-			write (1, &str[i], 1);
-			count++;
-		}
-		i++;
+			count += write (1, str, 1);
+		str++;
 	}
 	return (va_end (ap), count);
 }

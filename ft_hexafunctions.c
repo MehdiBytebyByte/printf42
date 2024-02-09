@@ -6,7 +6,7 @@
 /*   By: mboughra <mboughra@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:34:58 by mboughra          #+#    #+#             */
-/*   Updated: 2023/12/09 21:27:42 by mboughra         ###   ########.fr       */
+/*   Updated: 2023/12/09 17:53:40 by mboughra         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,13 @@ int	ft_hexaconv(unsigned int a, char c)
 	return (count);
 }
 
-int	ft_hexapointer(unsigned long a, int check)
+int	ft_hexapointer(unsigned long a)
 {
 	int		count;
 	char	*str;
 
 	count = 0;
 	str = "0123456789abcdef";
-	if (check == 1)
-	{
-		count += write(1, "0x", 2);
-		check = 0;
-	}
 	if (a < 16)
 	{
 		write(1, &str[a], 1);
@@ -54,8 +49,8 @@ int	ft_hexapointer(unsigned long a, int check)
 	}
 	else
 	{
-		count += ft_hexapointer(a / 16, check);
-		count += ft_hexapointer(a % 16, check);
+		count += ft_hexapointer(a / 16);
+		count += ft_hexapointer(a % 16);
 	}
 	return (count);
 }
